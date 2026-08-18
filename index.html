@@ -4,68 +4,62 @@
 <meta charset="UTF-8">
 <title>For Charmi</title>
 <style>
-body{
+body {
   font-family: Arial;
-  text-align:center;
-  background:#ffe6f0;
-  padding-top:80px;
+  text-align: center;
+  background: #ffe6f0;
+  padding-top: 80px;
+  overflow-x: hidden; /* Prevents horizontal scrollbar */
 }
-button{
-  padding:12px 24px;
-  margin:10px;
-  font-size:18px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
+button {
+  padding: 12px 24px;
+  margin: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
-.yes{background:#ff4d6d;color:white;}
-.no{background:#ccc;}
-#second{display:none;}
-img{width:400px;border-radius:12px;margin-top:20px;}
+.yes { background: #ff4d6d; color: white; }
+.no { background: #ccc; }
+#second { display: none; }
+img { width: 400px; border-radius: 12px; margin-top: 20px; }
 </style>
 </head>
 
 <body>
 
 <div id="first">
-<h1>Charmi</h1>
-<h2>Can we meet F2F once</h2>
-<button class="yes" onclick="showLove()">Yes 💖</button>
-<!-- <button class="no" onclick="moveNo()">No 😜</button> -->
-<button class="no" id="noBtn">No 😜</button>
+  <h1>Charmi</h1>
+  <h2>Can we meet F2F once</h2>
+  <button class="yes" onclick="showLove()">Yes 💖</button>
+  <button class="no" id="noBtn">No 😜</button>
 </div>
 
 <div id="second">
-<h1>Thanks Charmi....</h1>
-
-<!-- CHANGE IMAGE LINK BELOW
-<img src=""> -->
-
-<p style="font-size:20px;margin-top:20px;">
-I think we can meet here. 
-  <a href="https://arbre.cafe">Arbre Café</a>
-  <p>/n this is just form confirm this in chat....</p>
-</p>
+  <h1>Thanks Charmi....</h1>
+  <p style="font-size:20px;margin-top:20px;">
+    I think we can meet here. 
+    <a href="https://arbre.cafe" target="_blank">Arbre Café</a>
+  </p>
+  <p>this is just to confirm this in chat....</p>
 </div>
 
 <script>
-function showLove(){
-  document.getElementById("first").style.display="none";
-  document.getElementById("second").style.display="block";
+function showLove() {
+  document.getElementById("first").style.display = "none";
+  document.getElementById("second").style.display = "block";
 }
 
 const noBtn = document.getElementById("noBtn");
-noBtn.addEventListener("mouseover", function(){
-  const x = Math.floor(Math.random() * (window.innerWidth - 100));
-  const y = Math.floor(Math.random() * (window.innerWidth - 50));
+
+noBtn.addEventListener("mouseover", function() {
+  // Calculate maximum X position within screen bounds
+  const maxX = window.innerWidth - noBtn.offsetWidth - 20; 
+  const newX = Math.max(10, Math.floor(Math.random() * maxX));
 
   noBtn.style.position = "absolute";
-  noBtn.style.right = x + "px";
-  noBtn.style.top = y + "px";
+  noBtn.style.left = newX + "px";
 });
-function moveNo(){
-  alert("No option allowed 😜 Only YES ❤️");
-}
 </script>
 
 </body>
